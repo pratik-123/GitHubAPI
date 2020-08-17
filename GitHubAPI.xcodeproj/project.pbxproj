@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3059CE0124EAE20F009FEC03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059CE0024EAE20F009FEC03 /* AppDelegate.swift */; };
-		3059CE0324EAE20F009FEC03 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059CE0224EAE20F009FEC03 /* SceneDelegate.swift */; };
 		3059CE0524EAE20F009FEC03 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059CE0424EAE20F009FEC03 /* ViewController.swift */; };
 		3059CE0824EAE20F009FEC03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3059CE0624EAE20F009FEC03 /* Main.storyboard */; };
 		3059CE0B24EAE20F009FEC03 /* GitHubAPI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3059CE0924EAE20F009FEC03 /* GitHubAPI.xcdatamodeld */; };
@@ -38,7 +37,6 @@
 /* Begin PBXFileReference section */
 		3059CDFD24EAE20F009FEC03 /* GitHubAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3059CE0024EAE20F009FEC03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3059CE0224EAE20F009FEC03 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		3059CE0424EAE20F009FEC03 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3059CE0724EAE20F009FEC03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3059CE0A24EAE20F009FEC03 /* GitHubAPI.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GitHubAPI.xcdatamodel; sourceTree = "<group>"; };
@@ -102,7 +100,6 @@
 			isa = PBXGroup;
 			children = (
 				3059CE0024EAE20F009FEC03 /* AppDelegate.swift */,
-				3059CE0224EAE20F009FEC03 /* SceneDelegate.swift */,
 				3059CE0424EAE20F009FEC03 /* ViewController.swift */,
 				3059CE0624EAE20F009FEC03 /* Main.storyboard */,
 				3059CE0C24EAE213009FEC03 /* Assets.xcassets */,
@@ -264,7 +261,6 @@
 			files = (
 				3059CE0524EAE20F009FEC03 /* ViewController.swift in Sources */,
 				3059CE0124EAE20F009FEC03 /* AppDelegate.swift in Sources */,
-				3059CE0324EAE20F009FEC03 /* SceneDelegate.swift in Sources */,
 				3059CE0B24EAE20F009FEC03 /* GitHubAPI.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -440,6 +436,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = GitHubAPI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -457,6 +454,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = GitHubAPI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
