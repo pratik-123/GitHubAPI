@@ -15,8 +15,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        initialSetup()
         return true
+    }
+    
+    /// Basic inital setup
+    private func initialSetup() {
+        //inital screen settings
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        let initialVC = UserListViewController()
+        //navigation controller set to initial page
+        let navigationController = UINavigationController(rootViewController: initialVC)
+        self.window?.rootViewController = navigationController
+        self.window?.makeKeyAndVisible()
     }
 
     // MARK: - Core Data stack
