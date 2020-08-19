@@ -10,4 +10,5 @@ import Foundation
 struct StringConstant {
     ///user list page title
     static let userListTitle = "Users"
+    static let emptyUserText = "OOPS!!!!! No data found. Type to search user....."
 }

@@ -17,7 +17,15 @@ class UserListViewController: BaseViewController {
         tableView.separatorInset = UIEdgeInsets.zero
         return tableView
     }()
-    
+    private let searchController = UISearchController(searchResultsController: nil)
+    lazy private var labelNoDataFound : PLTitleLabel = {
+        let label = PLTitleLabel()
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        label.text = StringConstant.emptyUserText
+        return label
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         pageSetup()
@@ -28,7 +36,39 @@ class UserListViewController: BaseViewController {
         view.backgroundColor = .white
         title = StringConstant.userListTitle
         tableViewSetup()
+        noDataLabelSettings()
+        searchControllerSettings()
     }
+    
+    /// no data label setup
+    private func noDataLabelSettings() {
+        view.addSubview(labelNoDataFound)
+        labelNoDataFound.snp.makeConstraints { (maker) in
+            maker.size.equalTo(200)
+            maker.center.equalTo(view)
+        }
+    }
+}
+extension UserListViewController: UISearchResultsUpdating {
+    
+    /// search controll settings
+    private func searchControllerSettings() {
+        searchController.searchResultsUpdater = self
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchBar.sizeToFit()
+        tableViewUser.tableHeaderView = searchController.searchBar
+    }
+    func updateSearchResults(for searchController: UISearchController) {
+        if !searchController.isActive {
+            searchController.searchBar.resignFirstResponder()
+        }
+        guard let text = searchController.searchBar.text else {
+            return
+        }
+        print(text)
+    }
+
 }
 extension UserListViewController: UITableViewDataSource, UITableViewDelegate {
     
@@ -43,7 +83,9 @@ extension UserListViewController: UITableViewDataSource, UITableViewDelegate {
         tableViewUser.register(UserListTableViewCell.self, forCellReuseIdentifier: UserListTableViewCell.identifer)
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        let rowCount = 2
+        labelNoDataFound.isHidden = ((rowCount == 0) ? false : true)
+        return rowCount
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: UserListTableViewCell.identifer, for: indexPath) as? UserListTableViewCell
