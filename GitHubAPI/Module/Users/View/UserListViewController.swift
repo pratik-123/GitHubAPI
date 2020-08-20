@@ -83,11 +83,12 @@ extension UserListViewController: UISearchBarDelegate {
     
     /// search controll settings
     private func searchControllerSettings() {
+        definesPresentationContext = true
         searchController.searchBar.delegate = self
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.sizeToFit()
-        tableViewUser.tableHeaderView = searchController.searchBar
+        navigationItem.searchController = searchController
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -97,19 +98,8 @@ extension UserListViewController: UISearchBarDelegate {
         }
     }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        print("cancel click")
+        viewModel.resetData()
     }
-    
-    func updateSearchResults(for searchController: UISearchController) {
-        if !searchController.isActive {
-            searchController.searchBar.resignFirstResponder()
-        }
-        guard let text = searchController.searchBar.text else {
-            return
-        }
-        print(text)
-    }
-
 }
 // MARK: - UITableView methods
 extension UserListViewController: UITableViewDataSource, UITableViewDelegate {

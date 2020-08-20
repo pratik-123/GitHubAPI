@@ -18,6 +18,12 @@ class UserListViewModel {
     }
     
     
+    /// reset data
+    func resetData() {
+        arrayOfUsers = []
+        self.onRefreshHandling?()
+    }
+    
     /// Search user
     /// - Parameter text: serch text
     func searchUser(text: String) {

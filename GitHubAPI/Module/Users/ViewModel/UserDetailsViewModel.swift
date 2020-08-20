@@ -55,7 +55,7 @@ class UserDetailsViewModel {
             }
         } else {
             ///in internet connection not found then refresh screen
-            self.onRefreshHandling?()
+            self.fetchLocalUserDetails(service: service)
         }
     }
     
