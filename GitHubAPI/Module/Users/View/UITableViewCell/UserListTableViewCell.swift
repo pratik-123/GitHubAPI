@@ -12,7 +12,12 @@ import SnapKit
 class UserListTableViewCell: UITableViewCell {
     
     static let identifer = String(describing: UserListTableViewCell.self)
-    lazy private var imageViewProfile = PLImageView(frame: CGRect.zero)
+    lazy private var imageViewProfile : PLImageView = {
+        let imageView = PLImageView(frame: CGRect.zero)
+        imageView.contentMode = .scaleAspectFill
+        imageView.setCornerRadius()
+        return imageView
+    }()
     lazy private var labelName = PLTitleLabel()
     lazy private var labelUserID = PLSubTitleLabel()
     lazy private var labelNodeID = PLSubTitleLabel()
@@ -59,11 +64,15 @@ class UserListTableViewCell: UITableViewCell {
             maker.right.equalTo(contentView.snp.right).offset(-16).priority(750)
         }
         
-        labelName.text = "Name : Lorem ipsum"
-        labelUserID.text = "ID : Lorem ipsum"
-        labelNodeID.text = "Node ID : Lorem ipsum"
-        labelScore.text = "Score : 1"
-        imageViewProfile.setImage(forURL: "https://avatars3.githubusercontent.com/u/4122993?v=4")
     }
-
+    
+    /// Cell data settings
+    /// - Parameter userObject: User object
+    func cellDataSet(from userObject: User?) {
+        labelName.text = "User name: " + (userObject?.login ?? "")
+        labelUserID.text = "ID: " + (userObject?.id.description ?? "")
+        labelNodeID.text = "Node ID: " + (userObject?.node_id ?? "")
+        labelScore.text = "Score: " + (userObject?.score.description ?? "")
+        imageViewProfile.setImage(forURL: userObject?.avatar_url)
+    }
 }

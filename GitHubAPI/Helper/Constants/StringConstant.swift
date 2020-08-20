@@ -11,4 +11,9 @@ struct StringConstant {
     ///user list page title
     static let userListTitle = "Users"
     static let emptyUserText = "OOPS!!!!! No data found. Type to search user....."
+    ///user details page title
+    static let userDetailsTitle = "User Details"
+    ///followers text title
+    static let userFollowersTitle = "Followers"
+    
 }

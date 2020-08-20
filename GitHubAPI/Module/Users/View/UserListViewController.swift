@@ -25,6 +25,7 @@ class UserListViewController: BaseViewController {
         label.text = StringConstant.emptyUserText
         return label
     }()
+    private let viewModel = UserListViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +36,7 @@ class UserListViewController: BaseViewController {
     private func pageSetup() {
         view.backgroundColor = .white
         title = StringConstant.userListTitle
+        closureSetup()
         tableViewSetup()
         noDataLabelSettings()
         searchControllerSettings()
@@ -49,16 +51,55 @@ class UserListViewController: BaseViewController {
         }
     }
 }
-extension UserListViewController: UISearchResultsUpdating {
+// MARK: - Clousers
+extension UserListViewController {
+    /// Clouser setup methods
+    private func closureSetup() {
+        // add error handling
+        self.viewModel.onErrorHandling = { [weak self] error in
+            DispatchQueue.main.async {
+                self?.removeActivityIndicator()
+                switch error {
+                case .custom(let message):
+                    self?.showAlert(message: message)
+                    break
+                default:
+                    self?.showAlert(message: error?.localizedDescription)
+                    break
+                }
+            }
+        }
+        //refresh screen
+        self.viewModel.onRefreshHandling = { [weak self] in
+            DispatchQueue.main.async {
+                self?.removeActivityIndicator()
+                self?.tableViewUser.reloadData()
+            }
+        }
+    }
+}
+// MARK: - UISearchController methods
+extension UserListViewController: UISearchBarDelegate {
     
     /// search controll settings
     private func searchControllerSettings() {
-        searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.sizeToFit()
         tableViewUser.tableHeaderView = searchController.searchBar
     }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if let searchText = searchBar.text, !searchText.isEmpty {
+            displayActivityIndicator(onView: view)
+            viewModel.searchUser(text: searchText)
+        }
+    }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        print("cancel click")
+    }
+    
     func updateSearchResults(for searchController: UISearchController) {
         if !searchController.isActive {
             searchController.searchBar.resignFirstResponder()
@@ -70,6 +111,7 @@ extension UserListViewController: UISearchResultsUpdating {
     }
 
 }
+// MARK: - UITableView methods
 extension UserListViewController: UITableViewDataSource, UITableViewDelegate {
     
     /// tableview settings
@@ -83,14 +125,20 @@ extension UserListViewController: UITableViewDataSource, UITableViewDelegate {
         tableViewUser.register(UserListTableViewCell.self, forCellReuseIdentifier: UserListTableViewCell.identifer)
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let rowCount = 2
+        let rowCount = viewModel.numberOfUser()
         labelNoDataFound.isHidden = ((rowCount == 0) ? false : true)
         return rowCount
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: UserListTableViewCell.identifer, for: indexPath) as? UserListTableViewCell
             else { return UITableViewCell() }
+        let objUser = viewModel.getUser(at: indexPath.row)
+        cell.cellDataSet(from: objUser)
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailViewController = UserDetailsViewController()
+        navigationController?.pushViewController(detailViewController, animated: true)
     }
 }
 

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2582A00004C68D12BC665669 /* Pods_GitHubAPI_GitHubAPIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9164DE4567C6D63A03AA5DF7 /* Pods_GitHubAPI_GitHubAPIUITests.framework */; };
+		3005D29224ED3E9400882126 /* ServerCommunication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005D29124ED3E9400882126 /* ServerCommunication.swift */; };
+		30233B8824ED01C600974414 /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30233B8724ED01C600974414 /* UserDetailsViewController.swift */; };
+		302C4BCA24ECE54800764F7A /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C4BC924ECE54800764F7A /* APIManager.swift */; };
 		304CB3E524EC4E0000E76223 /* PLImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304CB3E424EC4E0000E76223 /* PLImageView.swift */; };
 		3059CE0124EAE20F009FEC03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059CE0024EAE20F009FEC03 /* AppDelegate.swift */; };
 		3059CE0B24EAE20F009FEC03 /* GitHubAPI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3059CE0924EAE20F009FEC03 /* GitHubAPI.xcdatamodeld */; };
@@ -18,9 +21,17 @@
 		3059CE3724EB81D0009FEC03 /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059CE3624EB81D0009FEC03 /* UserListViewController.swift */; };
 		3059CE3D24EB8347009FEC03 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059CE3C24EB8347009FEC03 /* BaseViewController.swift */; };
 		3059CE3F24EB88A3009FEC03 /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059CE3E24EB88A3009FEC03 /* UserListViewModel.swift */; };
+		3084884824ED8E0C00D11457 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084884724ED8E0C00D11457 /* CoreDataManager.swift */; };
 		30C4A84024EB8F4B00DE6418 /* StringConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C4A83F24EB8F4B00DE6418 /* StringConstant.swift */; };
 		30C4A84324EB9CC500DE6418 /* UserListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C4A84224EB9CC500DE6418 /* UserListTableViewCell.swift */; };
 		30C4A84724EB9D4C00DE6418 /* PLLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C4A84624EB9D4C00DE6418 /* PLLabel.swift */; };
+		30E379F124ED7CF90071B1C0 /* UserListDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E379F024ED7CF90071B1C0 /* UserListDataService.swift */; };
+		30E379F324ED810C0071B1C0 /* UserSearchBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E379F224ED810C0071B1C0 /* UserSearchBaseModel.swift */; };
+		30E379F824ED83E60071B1C0 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E379F624ED83E60071B1C0 /* User+CoreDataClass.swift */; };
+		30E379F924ED83E60071B1C0 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E379F724ED83E60071B1C0 /* User+CoreDataProperties.swift */; };
+		30E379FB24ED85360071B1C0 /* App+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E379FA24ED85360071B1C0 /* App+Extension.swift */; };
+		30E379FE24ED8B6B0071B1C0 /* ErrorResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E379FD24ED8B6B0071B1C0 /* ErrorResult.swift */; };
+		30E37A0124ED8BAD0071B1C0 /* ParserHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E37A0024ED8BAD0071B1C0 /* ParserHelper.swift */; };
 		99EE1D946D6B2A7257B7F397 /* Pods_GitHubAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85447A56EAE64AC5D99A72C7 /* Pods_GitHubAPI.framework */; };
 		B5F9DE8D9584BC421908697A /* Pods_GitHubAPITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E24AD50AA19C5C6AE6E084FB /* Pods_GitHubAPITests.framework */; };
 /* End PBXBuildFile section */
@@ -44,6 +55,9 @@
 
 /* Begin PBXFileReference section */
 		2EEF99461B0AB3BAEFAC0178 /* Pods-GitHubAPI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubAPI.debug.xcconfig"; path = "Target Support Files/Pods-GitHubAPI/Pods-GitHubAPI.debug.xcconfig"; sourceTree = "<group>"; };
+		3005D29124ED3E9400882126 /* ServerCommunication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerCommunication.swift; sourceTree = "<group>"; };
+		30233B8724ED01C600974414 /* UserDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsViewController.swift; sourceTree = "<group>"; };
+		302C4BC924ECE54800764F7A /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		304CB3E424EC4E0000E76223 /* PLImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLImageView.swift; sourceTree = "<group>"; };
 		3059CDFD24EAE20F009FEC03 /* GitHubAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3059CE0024EAE20F009FEC03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -60,9 +74,17 @@
 		3059CE3624EB81D0009FEC03 /* UserListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
 		3059CE3C24EB8347009FEC03 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		3059CE3E24EB88A3009FEC03 /* UserListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
+		3084884724ED8E0C00D11457 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		30C4A83F24EB8F4B00DE6418 /* StringConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConstant.swift; sourceTree = "<group>"; };
 		30C4A84224EB9CC500DE6418 /* UserListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListTableViewCell.swift; sourceTree = "<group>"; };
 		30C4A84624EB9D4C00DE6418 /* PLLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLLabel.swift; sourceTree = "<group>"; };
+		30E379F024ED7CF90071B1C0 /* UserListDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListDataService.swift; sourceTree = "<group>"; };
+		30E379F224ED810C0071B1C0 /* UserSearchBaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchBaseModel.swift; sourceTree = "<group>"; };
+		30E379F624ED83E60071B1C0 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		30E379F724ED83E60071B1C0 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		30E379FA24ED85360071B1C0 /* App+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App+Extension.swift"; sourceTree = "<group>"; };
+		30E379FD24ED8B6B0071B1C0 /* ErrorResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResult.swift; sourceTree = "<group>"; };
+		30E37A0024ED8BAD0071B1C0 /* ParserHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserHelper.swift; sourceTree = "<group>"; };
 		60AEF673609FEF0933AEE0B4 /* Pods-GitHubAPITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubAPITests.debug.xcconfig"; path = "Target Support Files/Pods-GitHubAPITests/Pods-GitHubAPITests.debug.xcconfig"; sourceTree = "<group>"; };
 		69CEFF412BEDB9568EAD86E7 /* Pods-GitHubAPI-GitHubAPIUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubAPI-GitHubAPIUITests.debug.xcconfig"; path = "Target Support Files/Pods-GitHubAPI-GitHubAPIUITests/Pods-GitHubAPI-GitHubAPIUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		85447A56EAE64AC5D99A72C7 /* Pods_GitHubAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitHubAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,6 +123,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3005D29024ED3E8600882126 /* ServerCommunication */ = {
+			isa = PBXGroup;
+			children = (
+				3005D29124ED3E9400882126 /* ServerCommunication.swift */,
+			);
+			path = ServerCommunication;
+			sourceTree = "<group>";
+		};
 		3059CDF424EAE20F009FEC03 = {
 			isa = PBXGroup;
 			children = (
@@ -132,7 +162,6 @@
 				3059CE0C24EAE213009FEC03 /* Assets.xcassets */,
 				3059CE0E24EAE213009FEC03 /* LaunchScreen.storyboard */,
 				3059CE1124EAE213009FEC03 /* Info.plist */,
-				3059CE0924EAE20F009FEC03 /* GitHubAPI.xcdatamodeld */,
 			);
 			path = GitHubAPI;
 			sourceTree = "<group>";
@@ -178,6 +207,7 @@
 			children = (
 				30C4A84124EB9C9C00DE6418 /* UITableViewCell */,
 				3059CE3624EB81D0009FEC03 /* UserListViewController.swift */,
+				30233B8724ED01C600974414 /* UserDetailsViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -193,6 +223,7 @@
 		3059CE3924EB82E0009FEC03 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				30E379F224ED810C0071B1C0 /* UserSearchBaseModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -200,6 +231,8 @@
 		3059CE3A24EB8328009FEC03 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				30E379F424ED835F0071B1C0 /* CoreData */,
+				30E379EF24ED7CCB0071B1C0 /* Service */,
 				30C4A83E24EB8F2800DE6418 /* Constants */,
 				3059CE3B24EB8333009FEC03 /* CustomView */,
 			);
@@ -220,6 +253,8 @@
 			isa = PBXGroup;
 			children = (
 				30C4A83F24EB8F4B00DE6418 /* StringConstant.swift */,
+				302C4BC924ECE54800764F7A /* APIManager.swift */,
+				30E379FA24ED85360071B1C0 /* App+Extension.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -230,6 +265,52 @@
 				30C4A84224EB9CC500DE6418 /* UserListTableViewCell.swift */,
 			);
 			path = UITableViewCell;
+			sourceTree = "<group>";
+		};
+		30E379EF24ED7CCB0071B1C0 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				30E379F024ED7CF90071B1C0 /* UserListDataService.swift */,
+				30E379FF24ED8B9B0071B1C0 /* Parser */,
+				3005D29024ED3E8600882126 /* ServerCommunication */,
+				30E379FC24ED8B540071B1C0 /* Error */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		30E379F424ED835F0071B1C0 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				3059CE0924EAE20F009FEC03 /* GitHubAPI.xcdatamodeld */,
+				3084884724ED8E0C00D11457 /* CoreDataManager.swift */,
+				30E379F524ED83670071B1C0 /* Model */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		30E379F524ED83670071B1C0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				30E379F624ED83E60071B1C0 /* User+CoreDataClass.swift */,
+				30E379F724ED83E60071B1C0 /* User+CoreDataProperties.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		30E379FC24ED8B540071B1C0 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				30E379FD24ED8B6B0071B1C0 /* ErrorResult.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		30E379FF24ED8B9B0071B1C0 /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				30E37A0024ED8BAD0071B1C0 /* ParserHelper.swift */,
+			);
+			path = Parser;
 			sourceTree = "<group>";
 		};
 		E5BA00FA77CEDC323EB93E7E /* Frameworks */ = {
@@ -494,14 +575,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				3059CE0124EAE20F009FEC03 /* AppDelegate.swift in Sources */,
+				30E379FB24ED85360071B1C0 /* App+Extension.swift in Sources */,
+				30E379F124ED7CF90071B1C0 /* UserListDataService.swift in Sources */,
+				30E379F924ED83E60071B1C0 /* User+CoreDataProperties.swift in Sources */,
+				3005D29224ED3E9400882126 /* ServerCommunication.swift in Sources */,
 				3059CE3D24EB8347009FEC03 /* BaseViewController.swift in Sources */,
+				302C4BCA24ECE54800764F7A /* APIManager.swift in Sources */,
+				30E379F324ED810C0071B1C0 /* UserSearchBaseModel.swift in Sources */,
 				3059CE0B24EAE20F009FEC03 /* GitHubAPI.xcdatamodeld in Sources */,
 				3059CE3724EB81D0009FEC03 /* UserListViewController.swift in Sources */,
 				304CB3E524EC4E0000E76223 /* PLImageView.swift in Sources */,
 				30C4A84724EB9D4C00DE6418 /* PLLabel.swift in Sources */,
 				3059CE3F24EB88A3009FEC03 /* UserListViewModel.swift in Sources */,
+				30233B8824ED01C600974414 /* UserDetailsViewController.swift in Sources */,
 				30C4A84024EB8F4B00DE6418 /* StringConstant.swift in Sources */,
+				30E379FE24ED8B6B0071B1C0 /* ErrorResult.swift in Sources */,
 				30C4A84324EB9CC500DE6418 /* UserListTableViewCell.swift in Sources */,
+				30E37A0124ED8BAD0071B1C0 /* ParserHelper.swift in Sources */,
+				3084884824ED8E0C00D11457 /* CoreDataManager.swift in Sources */,
+				30E379F824ED83E60071B1C0 /* User+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -667,6 +759,7 @@
 			baseConfigurationReference = 2EEF99461B0AB3BAEFAC0178 /* Pods-GitHubAPI.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BASE_URL = "https://api.github.com/";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = GitHubAPI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -686,6 +779,7 @@
 			baseConfigurationReference = B5C9676AA0B2133F350A1F6E /* Pods-GitHubAPI.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BASE_URL = "https://api.github.com/";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = GitHubAPI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;

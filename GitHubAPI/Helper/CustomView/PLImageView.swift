@@ -12,16 +12,16 @@ import SDWebImage
 class PLImageView: UIImageView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setup()
     }
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setup()
     }
-
-    func setup() {
+    
+    /// Corner radius set
+    /// - Parameter cornerRadius: Radius value, defaultValue  =16
+    func setCornerRadius(cornerRadius: CGFloat = 16) {
         contentMode = .scaleAspectFit
-        layer.cornerRadius = 16
+        layer.cornerRadius = cornerRadius
         layer.borderColor = UIColor.lightGray.cgColor
         layer.borderWidth = 1
         layer.masksToBounds = true
@@ -31,7 +31,7 @@ class PLImageView: UIImageView {
     /// - Parameter path: string url
     func setImage(forURL path: String?){
         if let strPath = path, let url = URL(string: strPath) {
-            self.sd_setImage(with: url)
+            self.sd_setImage(with: url,placeholderImage: UIImage(named: "ic_profile_placeholder"))
         }
     }
 }

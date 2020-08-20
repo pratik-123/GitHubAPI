@@ -8,5 +8,78 @@
 
 import Foundation
 class UserListViewModel {
+    weak var service: UserListServiceProtocol?
+    var onRefreshHandling : (() -> Void)?
+    var onErrorHandling : ((ErrorResult?) -> Void)?
+    private var arrayOfUsers = [User]()
     
+    init(service: UserListServiceProtocol = UserListDataService.shared) {
+        self.service = service
+    }
+    
+    
+    /// Search user
+    /// - Parameter text: serch text
+    func searchUser(text: String) {
+        if text.isEmpty {
+            self.onRefreshHandling?()
+            return
+        }
+        guard let service = service else {
+            onErrorHandling?(ErrorResult.custom(string: "Missing service init"))
+            return
+        }
+        service.searchUser(text: text) { (result) in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(_):
+                    self.searchLocalUser(text: text, service: service)
+                    break
+                case .failure(let error):
+                    print(error)
+                    self.onErrorHandling?(ErrorResult.network(string: error.localizedDescription))
+                    break
+                }
+            }
+        }
+    }
+    
+    /// Search user form local db
+    /// - Parameters:
+    ///   - text: search text
+    ///   - service: service helper protocol
+    func searchLocalUser(text: String, service: UserListServiceProtocol) {
+        service.searchLocalUser(text: text) { (result) in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let data):
+                    self.arrayOfUsers = data
+                    self.onRefreshHandling?()
+                    break
+                case .failure(let error):
+                    print(error)
+                    self.onErrorHandling?(ErrorResult.network(string: error.localizedDescription))
+                    break
+                }
+            }
+        }
+    }
+}
+extension UserListViewModel {
+    
+    /// number of users count return
+    /// - Returns: users count
+    func numberOfUser() -> Int {
+        return arrayOfUsers.count
+    }
+    
+    /// User object get
+    /// - Parameter index: index
+    /// - Returns: if index found then return user object otherwise nil
+    func getUser(at index: Int) -> User? {
+        if arrayOfUsers.indices.contains(index) {
+            return arrayOfUsers[index]
+        }
+        return nil
+    }
 }
