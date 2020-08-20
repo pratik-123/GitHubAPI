@@ -4,7 +4,7 @@ GitHub API sample project written in Swift using MMVM architecture pattern witho
 
 - MVVM architecture
 - Unittest
-- Asynchronously data fetch from File
+- Asynchronously data fetch
 - CoreData use for local storage
 - Relationship manage in CoreData
 - Unique constraints manage in CoreData
@@ -14,15 +14,15 @@ GitHub API sample project written in Swift using MMVM architecture pattern witho
 
 
 # Following pods are use
--- SnapKit is use for layout management
--- Alamofire is use for network communications, 
--- SDWebImage use for cache image
+- SnapKit is use for layout management
+- Alamofire is use for network communications, 
+- SDWebImage use for cache image
 
 
 # GitHub API
--- User List/ Search: https://api.github.com/search/users?q=<search_text>&page=1
--- User details: https://api.github.com/users/<username>
--- Followers List: https://api.github.com/users/<username>/followers
+- User List/ Search: https://api.github.com/search/users?q=<search_text>&page=1
+- User details: https://api.github.com/users/<username>
+- Followers List: https://api.github.com/users/<username>/followers
 
 
 # Usage
