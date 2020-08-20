@@ -21,8 +21,8 @@ GitHub API sample project written in Swift using MMVM architecture pattern witho
 
 # GitHub API
 - User List/ Search: https://api.github.com/search/users?q=<search_text>&page=1
-- User details: https://api.github.com/users/<username>
-- Followers List: https://api.github.com/users/<username>/followers
+- User details: https://api.github.com/users/<user_name>
+- Followers List: https://api.github.com/users/<user_name>/followers
 
 
 # Usage
