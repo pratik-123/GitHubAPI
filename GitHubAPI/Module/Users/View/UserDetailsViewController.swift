@@ -50,7 +50,8 @@ class UserDetailsViewController: BaseViewController {
         tableView.separatorInset = UIEdgeInsets.zero
         return tableView
     }()
-
+    var viewModel = UserDetailsViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         pageSetup()
@@ -61,7 +62,42 @@ class UserDetailsViewController: BaseViewController {
         view.backgroundColor = .white
         title = StringConstant.userDetailsTitle
         userInfoViewSettings()
+        closureSetup()
         tableViewSetup()
+        fetchUserData()
+    }
+    
+    private func fetchUserData() {
+        displayActivityIndicator(onView: view)
+        viewModel.fetchData()
+    }
+}
+// MARK: - Clousers
+extension UserDetailsViewController {
+    /// Clouser setup methods
+    private func closureSetup() {
+        // add error handling
+        viewModel.onErrorHandling = { [weak self] error in
+            DispatchQueue.main.async {
+                self?.removeActivityIndicator()
+                switch error {
+                case .custom(let message):
+                    self?.showAlert(message: message)
+                    break
+                default:
+                    self?.showAlert(message: error?.localizedDescription)
+                    break
+                }
+            }
+        }
+        //refresh screen
+        viewModel.onRefreshHandling = { [weak self] in
+            DispatchQueue.main.async {
+                self?.removeActivityIndicator()
+                self?.userDetailsRefresh()
+                self?.tableViewUserFollowers.reloadData()
+            }
+        }
     }
 }
 // MARK: - UserInfo View methods
@@ -91,11 +127,17 @@ extension UserDetailsViewController {
             maker.size.height.equalTo(100).priority(750)
             maker.leading.trailing.bottom.equalToSuperview()
         }
-        imageViewProfile.setImage(forURL: "https://avatars3.githubusercontent.com/u/14847039?v=4")
-        labelName.text =  "Name : Lorem"
-        labelUserName.text = "Username : Lorem"
-        labelLocation.text = "Location : Valsad"
-        labelBio.text = "Bio : "
+        userDetailsRefresh()
+    }
+    
+    func userDetailsRefresh() {
+        DispatchQueue.main.async {
+            self.labelName.text =  "Name: " + (self.viewModel.objUser?.name ?? "")
+        }
+        labelUserName.text = "User name: "  + (viewModel.objUser?.login ?? "")
+        labelLocation.text = "Location: "  + (viewModel.objUser?.location ?? "")
+        labelBio.text = "Bio: " + (viewModel.objUser?.bio ?? "")
+        imageViewProfile.setImage(forURL: viewModel.objUser?.avatar_url)
     }
 }
 // MARK: - UITableView methods
@@ -113,7 +155,7 @@ extension UserDetailsViewController: UITableViewDataSource, UITableViewDelegate 
         tableViewUserFollowers.register(UserListTableViewCell.self, forCellReuseIdentifier: UserListTableViewCell.identifer)
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let rowCount = 2
+        let rowCount = viewModel.numberOfUser()
         return rowCount
     }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -123,6 +165,8 @@ extension UserDetailsViewController: UITableViewDataSource, UITableViewDelegate 
         guard let cell = tableView.dequeueReusableCell(withIdentifier: UserListTableViewCell.identifer, for: indexPath) as? UserListTableViewCell
             else { return UITableViewCell() }
         cell.accessoryType = .none
+        let objUser = viewModel.getUser(at: indexPath.row)
+        cell.cellDataSet(from: objUser)
         return cell
     }
 }

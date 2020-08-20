@@ -28,7 +28,7 @@ extension Parseable {
             }
             if let userID = userID, let userKey = CodingUserInfoKey.user {
                 let predicate = NSPredicate(format: "id = %d", userID)
-                if let user = CoreDataManager.shared.persistentContainer.viewContext.fetchData(entity: User.self,predicate: predicate).first as? User {
+                if let user = managedObjectContext.fetchData(entity: User.self,predicate: predicate).first as? User {
                     decoder.userInfo[userKey] = user
                 }
             }

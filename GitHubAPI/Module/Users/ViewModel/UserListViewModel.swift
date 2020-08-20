@@ -11,7 +11,7 @@ class UserListViewModel {
     weak var service: UserListServiceProtocol?
     var onRefreshHandling : (() -> Void)?
     var onErrorHandling : ((ErrorResult?) -> Void)?
-    private var arrayOfUsers = [User]()
+    private var arrayOfUsers = [UserPO]()
     
     init(service: UserListServiceProtocol = UserListDataService.shared) {
         self.service = service
@@ -29,18 +29,23 @@ class UserListViewModel {
             onErrorHandling?(ErrorResult.custom(string: "Missing service init"))
             return
         }
-        service.searchUser(text: text) { (result) in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(_):
-                    self.searchLocalUser(text: text, service: service)
-                    break
-                case .failure(let error):
-                    print(error)
-                    self.onErrorHandling?(ErrorResult.network(string: error.localizedDescription))
-                    break
+        ///check internet connectivity
+        if ServerCommunication.isConnectedToInternet() {
+            service.searchUser(text: text) { (result) in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(_):
+                        self.searchLocalUser(text: text, service: service)
+                        break
+                    case .failure(let error):
+                        print(error)
+                        self.onErrorHandling?(ErrorResult.network(string: error.localizedDescription))
+                        break
+                    }
                 }
             }
+        } else {
+            self.searchLocalUser(text: text, service: service)
         }
     }
     
@@ -76,7 +81,7 @@ extension UserListViewModel {
     /// User object get
     /// - Parameter index: index
     /// - Returns: if index found then return user object otherwise nil
-    func getUser(at index: Int) -> User? {
+    func getUser(at index: Int) -> UserPO? {
         if arrayOfUsers.indices.contains(index) {
             return arrayOfUsers[index]
         }

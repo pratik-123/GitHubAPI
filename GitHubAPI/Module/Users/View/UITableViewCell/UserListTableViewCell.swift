@@ -68,7 +68,7 @@ class UserListTableViewCell: UITableViewCell {
     
     /// Cell data settings
     /// - Parameter userObject: User object
-    func cellDataSet(from userObject: User?) {
+    func cellDataSet(from userObject: UserPO?) {
         labelName.text = "User name: " + (userObject?.login ?? "")
         labelUserID.text = "ID: " + (userObject?.id.description ?? "")
         labelNodeID.text = "Node ID: " + (userObject?.node_id ?? "")

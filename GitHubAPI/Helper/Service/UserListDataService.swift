@@ -11,7 +11,7 @@ import Foundation
 /// User list helper methods
 protocol UserListServiceProtocol: class {
     func searchUser(text: String, completion: @escaping ((Result<UserSearchBaseModel, ErrorResult>) -> Void))
-    func searchLocalUser(text: String, completion: @escaping ((Result<[User], ErrorResult>) -> Void))
+    func searchLocalUser(text: String, completion: @escaping ((Result<[UserPO], ErrorResult>) -> Void))
 }
 
 final class UserListDataService: Parseable, UserListServiceProtocol {
@@ -38,9 +38,10 @@ final class UserListDataService: Parseable, UserListServiceProtocol {
     ///   - text: search text
     ///   - completion: array of users data
     func searchLocalUser(text: String,
-                         completion: @escaping ((Result<[User], ErrorResult>) -> Void)) {
+                         completion: @escaping ((Result<[UserPO], ErrorResult>) -> Void)) {
         let predicate = NSPredicate(format: "login CONTAINS[cd] %@", text)
-        if let array = CoreDataManager.shared.persistentContainer.viewContext.fetchData(entity: User.self,predicate: predicate) as? [User] {
+        if let followers = CoreDataManager.shared.persistentContainer.viewContext.fetchData(entity: User.self,predicate: predicate) as? [User] {
+            let array = followers.map({UserPO(fromUser: $0)})
             completion(.success(array))
         } else {
             completion(.success([]))

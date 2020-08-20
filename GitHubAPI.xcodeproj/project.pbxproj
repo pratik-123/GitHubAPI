@@ -11,6 +11,10 @@
 		3005D29224ED3E9400882126 /* ServerCommunication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005D29124ED3E9400882126 /* ServerCommunication.swift */; };
 		30233B8824ED01C600974414 /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30233B8724ED01C600974414 /* UserDetailsViewController.swift */; };
 		302C4BCA24ECE54800764F7A /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C4BC924ECE54800764F7A /* APIManager.swift */; };
+		304131B124EE2EA5000D41D9 /* UserDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304131B024EE2EA5000D41D9 /* UserDetailsViewModel.swift */; };
+		304131B324EE3280000D41D9 /* UserDetailsDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304131B224EE3280000D41D9 /* UserDetailsDataService.swift */; };
+		304131B624EE387E000D41D9 /* Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304131B524EE387D000D41D9 /* Promise.swift */; };
+		304131B824EE4F9A000D41D9 /* UserPO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304131B724EE4F9A000D41D9 /* UserPO.swift */; };
 		304CB3E524EC4E0000E76223 /* PLImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304CB3E424EC4E0000E76223 /* PLImageView.swift */; };
 		3059CE0124EAE20F009FEC03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059CE0024EAE20F009FEC03 /* AppDelegate.swift */; };
 		3059CE0B24EAE20F009FEC03 /* GitHubAPI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3059CE0924EAE20F009FEC03 /* GitHubAPI.xcdatamodeld */; };
@@ -58,6 +62,10 @@
 		3005D29124ED3E9400882126 /* ServerCommunication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerCommunication.swift; sourceTree = "<group>"; };
 		30233B8724ED01C600974414 /* UserDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsViewController.swift; sourceTree = "<group>"; };
 		302C4BC924ECE54800764F7A /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		304131B024EE2EA5000D41D9 /* UserDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsViewModel.swift; sourceTree = "<group>"; };
+		304131B224EE3280000D41D9 /* UserDetailsDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsDataService.swift; sourceTree = "<group>"; };
+		304131B524EE387D000D41D9 /* Promise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Promise.swift; sourceTree = "<group>"; };
+		304131B724EE4F9A000D41D9 /* UserPO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPO.swift; sourceTree = "<group>"; };
 		304CB3E424EC4E0000E76223 /* PLImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLImageView.swift; sourceTree = "<group>"; };
 		3059CDFD24EAE20F009FEC03 /* GitHubAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3059CE0024EAE20F009FEC03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -129,6 +137,14 @@
 				3005D29124ED3E9400882126 /* ServerCommunication.swift */,
 			);
 			path = ServerCommunication;
+			sourceTree = "<group>";
+		};
+		304131B424EE387D000D41D9 /* Promise */ = {
+			isa = PBXGroup;
+			children = (
+				304131B524EE387D000D41D9 /* Promise.swift */,
+			);
+			path = Promise;
 			sourceTree = "<group>";
 		};
 		3059CDF424EAE20F009FEC03 = {
@@ -216,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				3059CE3E24EB88A3009FEC03 /* UserListViewModel.swift */,
+				304131B024EE2EA5000D41D9 /* UserDetailsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -224,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				30E379F224ED810C0071B1C0 /* UserSearchBaseModel.swift */,
+				304131B724EE4F9A000D41D9 /* UserPO.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -231,6 +249,7 @@
 		3059CE3A24EB8328009FEC03 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				304131B424EE387D000D41D9 /* Promise */,
 				30E379F424ED835F0071B1C0 /* CoreData */,
 				30E379EF24ED7CCB0071B1C0 /* Service */,
 				30C4A83E24EB8F2800DE6418 /* Constants */,
@@ -271,6 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				30E379F024ED7CF90071B1C0 /* UserListDataService.swift */,
+				304131B224EE3280000D41D9 /* UserDetailsDataService.swift */,
 				30E379FF24ED8B9B0071B1C0 /* Parser */,
 				3005D29024ED3E8600882126 /* ServerCommunication */,
 				30E379FC24ED8B540071B1C0 /* Error */,
@@ -575,6 +595,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3059CE0124EAE20F009FEC03 /* AppDelegate.swift in Sources */,
+				304131B624EE387E000D41D9 /* Promise.swift in Sources */,
 				30E379FB24ED85360071B1C0 /* App+Extension.swift in Sources */,
 				30E379F124ED7CF90071B1C0 /* UserListDataService.swift in Sources */,
 				30E379F924ED83E60071B1C0 /* User+CoreDataProperties.swift in Sources */,
@@ -585,13 +606,16 @@
 				3059CE0B24EAE20F009FEC03 /* GitHubAPI.xcdatamodeld in Sources */,
 				3059CE3724EB81D0009FEC03 /* UserListViewController.swift in Sources */,
 				304CB3E524EC4E0000E76223 /* PLImageView.swift in Sources */,
+				304131B124EE2EA5000D41D9 /* UserDetailsViewModel.swift in Sources */,
 				30C4A84724EB9D4C00DE6418 /* PLLabel.swift in Sources */,
 				3059CE3F24EB88A3009FEC03 /* UserListViewModel.swift in Sources */,
 				30233B8824ED01C600974414 /* UserDetailsViewController.swift in Sources */,
 				30C4A84024EB8F4B00DE6418 /* StringConstant.swift in Sources */,
 				30E379FE24ED8B6B0071B1C0 /* ErrorResult.swift in Sources */,
+				304131B324EE3280000D41D9 /* UserDetailsDataService.swift in Sources */,
 				30C4A84324EB9CC500DE6418 /* UserListTableViewCell.swift in Sources */,
 				30E37A0124ED8BAD0071B1C0 /* ParserHelper.swift in Sources */,
+				304131B824EE4F9A000D41D9 /* UserPO.swift in Sources */,
 				3084884824ED8E0C00D11457 /* CoreDataManager.swift in Sources */,
 				30E379F824ED83E60071B1C0 /* User+CoreDataClass.swift in Sources */,
 			);
